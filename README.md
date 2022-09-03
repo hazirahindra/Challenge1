@@ -4,7 +4,8 @@
 <p align="center">:princess: :man: :cop: :girl: :boy:</p>
 </h1>
 <p align="center">A project for counting people using <code>YOLOv5</code> for model training, <code>DeepSORT</code> for tracking, <code>PyTorch</code> as the model framework </p>
-<p align="center"><img src="./data/images/result.gif"/></p>
+<p align="center"><img src="results/result.gif"/></p>
+
 
 ## Objective
 By the end of the challenge, your machine learning model should:
