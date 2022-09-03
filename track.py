@@ -35,6 +35,7 @@ ROOT = FILE.parents[0]  # yolov5 deepsort root directory
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))  # add ROOT to PATH
 ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+
 count = 0
 data = []
 
@@ -199,13 +200,16 @@ def detect(opt):
             if show_vid:
                 global count
                 color=(0,255,0)
-                start_point = (0, h-350)
-                end_point = (w, h-350)
+                start_point = (0, h-100)
+                end_point = (w, h-100)
+                
                 cv2.line(im0, start_point, end_point, color, thickness=2)
+                
                 thickness = 3
                 org = (150, 150)
                 font = cv2.FONT_HERSHEY_SIMPLEX
                 fontScale = 3
+                
                 cv2.putText(im0, str(count), org, font, 
                    fontScale, color, thickness, cv2.LINE_AA)
                 cv2.imshow(str(p), im0)
@@ -240,7 +244,7 @@ def detect(opt):
 def count_obj(box,w,h,id):
     global count,data
     center_coordinates = (int(box[0]+(box[2]-box[0])/2) , int(box[1]+(box[3]-box[1])/2))
-    if int(box[1]+(box[3]-box[1])/2) > (h -350):
+    if int(box[1]+(box[3]-box[1])/2) > (h -100):
         if  id not in data:
             count += 1
             data.append(id)
@@ -262,6 +266,8 @@ if __name__ == '__main__':
     parser.add_argument('--save-txt', action='store_true', help='save MOT compliant results to *.txt')
     # class 0 is person, 1 is bycicle, 2 is car... 79 is oven
     parser.add_argument('--classes', nargs='+', type=int, default=[0], help='filter by class: --class 0, or --class 16 17')
+    # parser.add_argument('--classes', nargs='+', type=int, default=[0], help='filter by class: --class 0, or --class 16 17')
+    # parser.add_argument('--classes', nargs='+', type=int, default=[2], help='filter by class: --class 0, or --class 16 17')
     parser.add_argument('--agnostic-nms', action='store_true', help='class-agnostic NMS')
     parser.add_argument('--augment', action='store_true', help='augmented inference')
     parser.add_argument('--evaluate', action='store_true', help='augmented inference')
