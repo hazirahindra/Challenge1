@@ -15,16 +15,5 @@ By the end of the challenge, your machine learning model should:
 
 ## Model
 Download the weight model [here](https://drive.google.com/file/d/1f7zMADBvtre6t3QzLCxcZ9jxN7KUvw1b/view?usp=sharing)
-### 1. Setup Environment
-```bash
-# Create environment 
-python -m venv myvenv
 
-# Activate the environment
-myvenv\Scripts\activate
-
-# Install all the packages 
-pip install -r requirements.txt
-
-```
 
